@@ -5,11 +5,6 @@ pipeline {
     
   stages {
         
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/mba-78aoj-grupo3/pipelineteste.git'
-      }
-    }
         
     stage('Install dependencies') {
       steps {
