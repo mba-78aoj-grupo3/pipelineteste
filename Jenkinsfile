@@ -4,11 +4,23 @@ pipeline {
     registryCredential = 'DockerHub'
     dockerImage = ''
   }
+  
   agent any
   tools {nodejs "node" }
     
   stages {
-       
+
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+
+    stage('Test') {
+      steps {
+         sh 'npm test'
+      }
+    }           
       
     stage('Building image') {
       steps{
@@ -26,9 +38,9 @@ pipeline {
         }
       }
     }
-    stage('Remove Unused docker image') {
+    stage('Deploy') {
       steps{
-        sh "docker rmi $registry:latest"
+        sh "sh run-ci.sh"
       }
     }        
   }
