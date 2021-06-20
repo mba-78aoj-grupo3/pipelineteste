@@ -123,7 +123,7 @@ services:
 #Microservices
 
   ms-help-desk:
-    image: ms-help-desk:10
+    image: findfixer/ms-help-desk:latest
     container_name: ms-help-desk
     hostname: ms-help-desk
     restart: always
