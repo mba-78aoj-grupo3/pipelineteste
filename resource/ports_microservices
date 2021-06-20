@@ -1,0 +1,14 @@
+Microservices:
+ms-profiles - 8033
+ms-help-desk- 8034
+ms-products - 8035
+ms-order - 8036
+ms-shipping - 8037
+
+Plataform:
+Consul - 8085
+Postgres - 15432
+PgAdmin - 16543
+Kafka - 9092
+Kafdrop - 19000
+
