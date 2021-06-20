@@ -10,30 +10,10 @@ pipeline {
   stages {
        
       
-    stage('Install dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
-     
-    stage('Test') {
-      steps {
-         sh 'npm test'
-      }
-    }
     stage('Building image') {
       steps{
         script {
           dockerImage = docker.build registry + ":latest"
-        }
-      }
-    }
-    stage('Push Image') {
-      steps{
-         script {
-            docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
         }
       }
     }
