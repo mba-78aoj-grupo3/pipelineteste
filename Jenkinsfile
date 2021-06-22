@@ -42,19 +42,11 @@ pipeline {
       steps{
         sh "sh run-ci.sh"
       }
+    }          
+  }
+  post {
+    always {
+      slackSendNotification script: this
     }
-  
-node {
-
-  notifyStarted()
-
-  /* ... existing build steps ... */
-}
-
-def notifyStarted() {
-  // send to Slack
-  slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-}           
-  
   }
 }
